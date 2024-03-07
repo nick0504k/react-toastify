@@ -132,7 +132,8 @@ export function useToast(props: ToastProps) {
       const translate =
         props.draggableDirection === 'x'
           ? `${drag.delta}px, var(--y)`
-          : `0, calc(${drag.delta}px + var(--y))`;
+          : `0, ${drag.delta}px`;
+      console.log(translate);
       toast.style.transform = `translate3d(${translate},0)`;
       toast.style.opacity = `${
         1 - Math.abs(drag.delta / drag.removalDistance)
